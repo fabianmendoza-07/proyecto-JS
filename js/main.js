@@ -1,51 +1,51 @@
-let contraseña="1234";
-let ingreso=true;
+let nombreAlumno = "Fabian";
+let apellidoAlumno = "Mendoza";
+let edad = 33;
+let cuotaAlDia = true;
+let carrera = "programacion";
 
-for (let index = 2; index >= 0; index--) {
-   let ingresoPIN = prompt("Ingresa tu Constraseña");
-   if(ingresoPIN === contraseña) {
-    alert("Bienvenid@");
-    ingreso=true;
-    break;
-   }else {
-    alert("Error");
-   }
+let alumnoFabian = {
+    nombre: "Fabian",
+    apellido: "Mendoza",
+    edad: 33,
+    carrera: "programacion",
+    cuota: true 
 }
-   
-if(ingreso){
-//alert("menu")
 
-let saldo=1000000;
-let opcion = prompt(
-    "elige una opción: \n1 - Saldo. \n2 - retirar. \n3 - deposito. \nPresiona X para finalizar.");
+console.log(alumnoFabian);
 
-while (opcion != "x"){
-    switch (opcion) {
-        case "1":
-            alert("tu saldo es $" + saldo)
-            break;
-        
-        case "2":
-        let retiro = parseInt(prompt("ingresa el monto a retirar"));    
-        if (retiro <= saldo){
-            saldo = saldo - retiro;
-            alert("retiro exitoso. Tu saldo es $" + saldo);
-        }
-        break;
+function persona(nombre, apellido, edad) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = edad;
 
-        case "3":
-            let deposito= parseInt(prompt("ingresa monto a depositar"));
-        saldo = saldo + deposito;
-    alert("deposito exitoso. tu nuevo saldo es $" + saldo)
-    break;
+    this.saludar = function() {
+        console.log(" Hola soy: " + this.nombre);
+    }
+}
+let nombre = prompt("Ingrese nombre de su hij@:");
+let apellido = prompt("Ingrese apellidos de su hij@:");
+let edadhijo = prompt("ingrese edad de su hij@:");
 
-        default:
-            alert("opcion no valida")
-            break;
+const persona1 = new persona(nombre, apellido, edadhijo);
+
+console.log(persona1);
+
+class Producto{
+    constructor(nombre, precio){
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+    
+    sumaiva() {
+        return this.precio * 1.21;
     }
 }
 
-alert("gracias por usar nuestros servicios");
-} else {
-    alert("por seguridad tu tarjeta ha sido bloqueada. comunicate al 01800223468")
-}
+const fideos = new Producto("Fideos marolio", 100 );
+
+console.log(fideos);
+
+console.log("El precio de los fideos es de: " + fideos.precio
+ + " y con el iva incluido es de: " + fideos.sumaiva());
+
